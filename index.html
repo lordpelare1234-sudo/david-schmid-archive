@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Schmid | Digital Legacy</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="logo">ARCHIVE</div>
+
+<nav>
+<a href="#bio">Biography</a>
+<a href="#publications">Publications</a>
+<a href="#media">Media</a>
+<a href="#news">News</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+
+<section class="hero">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+<h1>David <span>Schmid</span></h1>
+<p>Scholar of Crime, Culture & Media Mythology</p>
+</div>
+
+</section>
+
+
+
+<section id="bio" class="section reveal">
+
+<div class="bio-grid">
+
+<div class="bio-text">
+
+<h2>Biography</h2>
+<div class="divider"></div>
+
+<p>
+David Schmid is an Associate Professor of English at the University at Buffalo,
+where his research focuses on the intersection of popular culture, media,
+and representations of crime and violence.
+</p>
+
+<p>
+His work examines how serial killers and criminal figures are portrayed in
+literature, film, television, and digital media, and how these portrayals
+influence public perception and cultural memory.
+</p>
+
+
+<p>
+His research contributes to broader discussions about true crime,
+media sensationalism, and the cultural impact of storytelling
+in modern society.
+</p>
+
+
+</div>
+
+
+<div class="bio-image">
+<img src="schmid.jpg" alt="David Schmid">
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section dark reveal">
+
+<h2>Academic Timeline</h2>
+<div class="divider"></div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Academic Research</h3>
+<p>Early research examining representations of violence and crime in popular culture.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Natural Born Celebrities</h3>
+<p>Publication analyzing how serial killers become cultural icons in media.</p>
+</div>
+
+<div class="timeline-item">
+<h3>True Crime Scholarship</h3>
+<p>Research on the cultural fascination with crime stories and media narratives.</p>
+</div>
+
+<div class="timeline-item">
+<h3>University at Buffalo</h3>
+<p>Associate Professor of English studying media, crime, and cultural storytelling.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="publications" class="section dark reveal">
+
+<h2>Selected Publications</h2>
+<div class="divider"></div>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>Natural Born Celebrities</h3>
+<p>How serial killers become cultural icons in American media.</p>
+</div>
+
+<div class="card">
+<h3>True Crime & Media Culture</h3>
+<p>Examining crime storytelling and audience fascination.</p>
+</div>
+
+<div class="card">
+<h3>Crime & Cultural Memory</h3>
+<p>Analyzing narratives of violence in modern culture.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="media" class="section reveal">
+
+<h2>Media & Interviews</h2>
+<div class="divider"></div>
+
+<ul class="media-list">
+
+<li>Commentary on true crime documentaries</li>
+<li>Analysis of crime narratives in streaming media</li>
+<li>Public lectures on media sensationalism</li>
+
+</ul>
+
+</section>
+
+
+
+<section id="news" class="section reveal">
+
+<h2>News About David Schmid</h2>
+<div class="divider"></div>
+
+<div class="news-grid">
+
+<a href="nancy.html" class="news-card">
+<h3>Nancy Guthrie Case</h3>
+<p>What happens when media attention fades from a high-profile crime story?</p>
+</a>
+
+<a href="coldplay.html" class="news-card">
+<h3>Coldplay Concert Affair</h3>
+<p>A viral concert moment captured the internet and sparked widespread discussion.</p>
+</a>
+
+<a href="documentaries.html" class="news-card">
+<h3>True Crime Documentaries</h3>
+<p>33 documentaries that shaped the modern true-crime genre.</p>
+</a>
+
+<a href="hollywood.html" class="news-card">
+<h3>Hollywood & Politics</h3>
+<p>Celebrity endorsements and their influence on political discourse.</p>
+</a>
+
+</div>
+
+</section>
+
+
+
+<section id="contact" class="section dark reveal">
+
+<h2>Contact</h2>
+<div class="divider"></div>
+
+<p>Email: Justin.kincaid.1776@gmail.com</p>
+<p>Greg Company</p>
+
+</section>
+
+
+
+<footer>
+© 2026 Digital Archive
+</footer>
+
+
+
+<!-- AI CHAT BUTTON -->
+
+<div class="ai-button" onclick="toggleChat()">AI</div>
+
+<div class="chat-container" id="chatContainer">
+
+<div class="chat-header">
+Ask About David Schmid
+</div>
+
+<div class="chat-messages" id="chatMessages"></div>
+
+<input 
+type="text"
+id="userInput"
+placeholder="Ask a question..."
+onkeydown="if(event.key==='Enter') sendMessage()"
+>
+
+</div>
+
+
+
+<script>
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealSections(){
+
+reveals.forEach(section=>{
+
+const sectionTop = section.getBoundingClientRect().top;
+
+if(sectionTop < window.innerHeight-100){
+
+section.classList.add("active");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll", revealSections);
+window.addEventListener("load", revealSections);
+
+
+
+function toggleChat(){
+
+const chat = document.getElementById("chatContainer");
+
+if(chat.style.display==="flex"){
+
+chat.style.display="none";
+
+}else{
+
+chat.style.display="flex";
+
+}
+
+}
+
+
+
+async function sendMessage(){
+
+const input = document.getElementById("userInput");
+const message = input.value;
+
+if(!message) return;
+
+const messages = document.getElementById("chatMessages");
+
+messages.innerHTML += `<div class="user">${message}</div>`;
+
+input.value="";
+
+const context = `
+You are an academic assistant.
+
+The David Schmid referenced is an Associate Professor of English at the University at Buffalo.
+His research focuses on popular culture, true crime, serial killer mythology,
+and media representations of violence.
+
+Answer clearly and academically.
+`;
+
+try{
+
+const response = await fetch("http://localhost:11434/api/generate",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+model:"llama3:latest",
+prompt:context + "\\nUser Question: " + message,
+stream:false
+
+})
+
+});
+
+const data = await response.json();
+
+messages.innerHTML += `<div class="bot">${data.response}</div>`;
+
+messages.scrollTop = messages.scrollHeight;
+
+}
+
+catch{
+
+messages.innerHTML += `<div class="bot">⚠ Ollama not connected.</div>`;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
