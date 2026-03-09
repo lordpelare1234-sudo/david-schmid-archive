@@ -61,16 +61,13 @@ literature, film, television, and digital media, and how these portrayals
 influence public perception and cultural memory.
 </p>
 
-
 <p>
 His research contributes to broader discussions about true crime,
 media sensationalism, and the cultural impact of storytelling
 in modern society.
 </p>
 
-
 </div>
-
 
 <div class="bio-image">
 <img src="schmid.jpg" alt="David Schmid">
@@ -79,40 +76,23 @@ in modern society.
 </div>
 
 </section>
+<section id="audio" class="section reveal">
 
-
-
-<section class="section dark reveal">
-
-<h2>Academic Timeline</h2>
+<h2>Audio Documentary</h2>
 <div class="divider"></div>
 
-<div class="timeline">
+<p>
+Listen to a narrated exploration of David Schmid's scholarship,
+his research on crime culture, media narratives, and the cultural
+fascination with true crime storytelling.
+</p>
 
-<div class="timeline-item">
-<h3>Academic Research</h3>
-<p>Early research examining representations of violence and crime in popular culture.</p>
-</div>
-
-<div class="timeline-item">
-<h3>Natural Born Celebrities</h3>
-<p>Publication analyzing how serial killers become cultural icons in media.</p>
-</div>
-
-<div class="timeline-item">
-<h3>True Crime Scholarship</h3>
-<p>Research on the cultural fascination with crime stories and media narratives.</p>
-</div>
-
-<div class="timeline-item">
-<h3>University at Buffalo</h3>
-<p>Associate Professor of English studying media, crime, and cultural storytelling.</p>
-</div>
-
-</div>
+<audio controls style="width:100%; margin-top:20px;">
+<source src="david-schmid-audio.mp3.m4a" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 
 </section>
-
 
 
 <section id="publications" class="section dark reveal">
@@ -211,40 +191,17 @@ in modern society.
 
 
 
-<!-- AI CHAT BUTTON -->
-
-<div class="ai-button" onclick="toggleChat()">AI</div>
-
-<div class="chat-container" id="chatContainer">
-
-<div class="chat-header">
-Ask About David Schmid
-</div>
-
-<div class="chat-messages" id="chatMessages"></div>
-
-<input 
-type="text"
-id="userInput"
-placeholder="Ask a question..."
-onkeydown="if(event.key==='Enter') sendMessage()"
->
-
-</div>
-
-
-
 <script>
 
 const reveals = document.querySelectorAll(".reveal");
 
 function revealSections(){
 
-reveals.forEach(section=>{
+reveals.forEach(section => {
 
 const sectionTop = section.getBoundingClientRect().top;
 
-if(sectionTop < window.innerHeight-100){
+if(sectionTop < window.innerHeight - 100){
 
 section.classList.add("active");
 
@@ -256,85 +213,6 @@ section.classList.add("active");
 
 window.addEventListener("scroll", revealSections);
 window.addEventListener("load", revealSections);
-
-
-
-function toggleChat(){
-
-const chat = document.getElementById("chatContainer");
-
-if(chat.style.display==="flex"){
-
-chat.style.display="none";
-
-}else{
-
-chat.style.display="flex";
-
-}
-
-}
-
-
-
-async function sendMessage(){
-
-const input = document.getElementById("userInput");
-const message = input.value;
-
-if(!message) return;
-
-const messages = document.getElementById("chatMessages");
-
-messages.innerHTML += `<div class="user">${message}</div>`;
-
-input.value="";
-
-const context = `
-You are an academic assistant.
-
-The David Schmid referenced is an Associate Professor of English at the University at Buffalo.
-His research focuses on popular culture, true crime, serial killer mythology,
-and media representations of violence.
-
-Answer clearly and academically.
-`;
-
-try{
-
-const response = await fetch("http://localhost:11434/api/generate",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-
-model:"llama3:latest",
-prompt:context + "\\nUser Question: " + message,
-stream:false
-
-})
-
-});
-
-const data = await response.json();
-
-messages.innerHTML += `<div class="bot">${data.response}</div>`;
-
-messages.scrollTop = messages.scrollHeight;
-
-}
-
-catch{
-
-messages.innerHTML += `<div class="bot">⚠ Ollama not connected.</div>`;
-
-}
-
-}
 
 </script>
 
